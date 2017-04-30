@@ -7,9 +7,9 @@
  */ 
 #include "Arduino.h"
 #include "sensorAccGyro.h"
+#include "fixmath.h"
 
 float x, y;
-Fix16 a, b;
 sensorAccGyro Sensor = sensorAccGyro(1,2,3,4,5, 3,4);
 
 void setup()
@@ -29,7 +29,7 @@ void loop()
 	for(int i = 0; i<10; i++)
 	{
 		t1 = micros();
-		res = x * y;
+		res = atan2(x,y);
 		t2 = micros();
 		Serial.print("Res: ");
 		Serial.print(res);
@@ -37,12 +37,14 @@ void loop()
 		Serial.println(t2-t1);
 		delay(100);
 	}
+	Fix16 a, b;
+	a = Fix16(x);
+	b = Fix16(y);
+	Fix16 res1;
 	for(int i = 0; i<10; i++)
 	{
-
-		a = 
-		b = 
-		res =  a*b;
+		t1 = micros();
+		res1 = atan2(x, y);
 		t2 = micros();
 		Serial.print("Res: ");
 		Serial.print(res);
