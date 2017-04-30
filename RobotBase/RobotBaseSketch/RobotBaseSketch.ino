@@ -37,17 +37,18 @@ void loop()
 		Serial.println(t2-t1);
 		delay(100);
 	}
-	Fix16 a, b;
-	a = Fix16(x);
-	b = Fix16(y);
-	Fix16 res1;
+	Fix16 a, b, res1;
+	
+	a = x;
+	b = y;
+
 	for(int i = 0; i<10; i++)
 	{
 		t1 = micros();
-		res1 = atan2(x, y);
+		res1 = atan2(a,b);
 		t2 = micros();
 		Serial.print("Res: ");
-		Serial.print(res);
+		Serial.print(fix16_to_float(res1));
 		Serial.print(" t= ");
 		Serial.println(t2-t1);
 		delay(100);

@@ -16,6 +16,7 @@
 #else
 #include "WProgram.h"
 #endif
+#include "fixmath.h"
 
 class sensorAccGyro
 {
@@ -37,6 +38,7 @@ class sensorAccGyro
 		uint16_t zRaw();
 		uint16_t xGyrRaw();
 		uint16_t yGyrRaw();
+		Fix16 xCalcAng, zCalcAng;
 	public:
 		//Input the pins used as sensor inputs and power
 		sensorAccGyro(	uint8_t x_Acc_pin, uint8_t y_Acc_pin, uint8_t z_Acc_pin,
@@ -44,7 +46,7 @@ class sensorAccGyro
 						uint8_t sensorGND_Pin, bool Gyro_45_Res = true);
 		void Setup();
 		
-		uint16_t angle();	
+		Fix16 angle();	
 };
 
 #endif

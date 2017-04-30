@@ -48,4 +48,9 @@ uint16_t sensorAccGyro::yGyrRaw()
 {
 	return analogRead(yGyrPin);
 }
-uint16_t sensorAccGyro::angle(){}
+Fix16 sensorAccGyro::angle()
+{
+	xCalcAng = fix16_from_int(-xRaw());
+	zCalcAng = fix16_from_int(zRaw());
+	return atan2(xCalcAng,zCalcAng);
+}
