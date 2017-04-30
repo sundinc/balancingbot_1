@@ -6,3 +6,4 @@
 *.map
 *.mk
 *.buildinfo
+__vm/
