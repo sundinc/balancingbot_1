@@ -1,0 +1,8 @@
+*.xml
+*.old
+*.a
+*.elf
+*.hex
+*.map
+*.mk
+*.buildinfo
