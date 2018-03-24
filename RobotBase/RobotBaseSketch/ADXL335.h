@@ -18,8 +18,26 @@
 class ADXL335
 {
 	private:
+		int get_x_raw();
+		int get_y_raw();
+		int get_z_raw();
+		int get_pin(char pin);
+		char X_PIN = 0;
+		char Y_PIN = 0;
+		char Z_PIN = 0;
+		double resolution = 0;
+		double rawToG(int measured);
 
 	public:
+		enum RES {
+			10_bit = 10,
+			12_bit = 12,
+			16_bit = 16
+		};
+		ADXL335(char x_pin, char y_pin char z_pin, enum RES);
+		double get_x();
+		double get_y();
+		double get_z();
 
 };
 
