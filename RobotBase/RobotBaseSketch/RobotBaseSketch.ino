@@ -6,11 +6,9 @@
  * Author: Sundin
  */ 
 #include "Arduino.h"
-#include "sensorAccGyro.h"
-#include "fixmath.h"
+#include "ADXL335.h"
 
 float x, y;
-sensorAccGyro Sensor = sensorAccGyro(1,2,3,4,5, 3,4);
 
 void setup()
 {
@@ -37,23 +35,6 @@ void loop()
 		Serial.println(t2-t1);
 		delay(100);
 	}
-	Fix16 a, b, res1;
-	
-	a = x;
-	b = y;
-
-	for(int i = 0; i<10; i++)
-	{
-		t1 = micros();
-		res1 = atan2(a,b);
-		t2 = micros();
-		Serial.print("Res: ");
-		Serial.print(fix16_to_float(res1));
-		Serial.print(" t= ");
-		Serial.println(t2-t1);
-		delay(100);
-	}
-	while(1);
 	  /* add main program code here, this code starts again each time it ends */
 
 }
