@@ -6,7 +6,7 @@
  */ 
 #include "Arduino.h"
 #include "ADXL335.h"
-
+#include "IDG500.h"
 float x, y;
 
 void setup()

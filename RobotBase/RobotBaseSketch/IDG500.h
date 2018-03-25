@@ -18,7 +18,7 @@
 class IDG500
 {
 public:
-	IDG500(char x_pin, char y_pin, int resolution);
+	IDG500(char x_pin, char y_pin, int adc_resolution);
 	IDG500(char x_pin, char y_pin);
 	IDG500(char x_pin, char y_pin, char x_45_pin, char y_45_pin);
 	double get_x();
@@ -26,15 +26,15 @@ public:
 	int get_x_raw();
 	int get_y_raw();
 	double rawToDeg(int measured);
-	enum STATE :int {
-		LOW,
-		HIGH
+	enum STATE {
+		Low = 0,
+		High = 1,
 	};
 	void setResolution(STATE res);
 
 private:
-	int RESOLUTION = -1;
-	int state = 0;
+	int ADC_RESOLUTION = -1;
+	int RESOLUTION = 0;
 	char X_PIN;
 	char Y_PIN;
 	char X_45_PIN;
